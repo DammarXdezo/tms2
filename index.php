@@ -44,9 +44,11 @@
                       <td><?php echo $data['email']; ?></td>
                       <td><?php echo $data['password']; ?></td>
                       <td>
-                        <a href="#" class="btn btn-sm btn-primary">Edit</a>
-                        <a href="#" class="btn btn-sm btn-info">View</a>
-                        <a href="#" class="btn btn-sm btn-danger">Delete</a>
+                        <a href="edit.php?id=<?php echo $data['id'];?>" class="btn btn-sm btn-primary">Edit</a>
+                        <a href="view.php?id=<?php echo $data['id'];?>" class="btn btn-sm btn-info">View</a>
+                        <!-- <a href="process/deleteuser.php?id=<?php echo $data['id'];?>" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this item')">Delete</a> -->
+
+                        <a href="process/deleteuser.php?id=<?php echo $data['id'];?>" class="btn btn-sm btn-danger" onclick="return ConfirmDelete()">Delete</a>
                       </td>
                     </tr>
                 <?php
@@ -60,7 +62,12 @@
     </section>
 
 
-
+<script>
+ function ConfirmDelete()
+{
+  return confirm("Are you sure you want to delete?");
+}
+</script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
